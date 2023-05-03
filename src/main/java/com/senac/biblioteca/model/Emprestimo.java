@@ -4,62 +4,56 @@
  */
 package com.senac.biblioteca.model;
 
-import java.util.Objects;
-
 /**
  *
  * @author correa_rafael
  */
-public class Livro {
+public class Emprestimo {
     private int id;
-    private String titulo;
-    private String autor;
-    private String categoria;
-    private boolean disponivel;
+    private String leitor;
+    private String livro;
+    private String data;
+    private boolean devolvido;
 
-    public Livro(String titulo, String autor, String categoria) {
-        this.titulo = titulo;
-        this.autor = autor;
-        this.categoria = categoria;
-        this.disponivel = true;
-    }
-    
-    public Livro(int id){
-        this.id = id;
+    public Emprestimo(String leitor, String livro, String data) {
+        this.leitor = leitor;
+        this.livro = livro;
+        this.data = data;
+        this.devolvido = false;
     }
 
     public int getId() {
         return id;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getLeitor() {
+        return leitor;
     }
 
-    public String getAutor() {
-        return autor;
+    public String getLivro() {
+        return livro;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public String getData() {
+        return data;
     }
 
-    public boolean isDisponivel() {
-        return disponivel;
+    public boolean isDevolvido() {
+        return devolvido;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setDisponivel(boolean disponivel) {
-        this.disponivel = disponivel;
+    public void setDevolvido(boolean devolvido) {
+        this.devolvido = devolvido;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 67 * hash + this.id;
+        hash = 53 * hash + this.id;
         return hash;
     }
 
@@ -74,8 +68,7 @@ public class Livro {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Livro other = (Livro) obj;
+        final Emprestimo other = (Emprestimo) obj;
         return this.id == other.id;
     }
-
 }

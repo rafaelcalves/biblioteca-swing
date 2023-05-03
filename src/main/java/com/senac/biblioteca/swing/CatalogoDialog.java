@@ -53,6 +53,7 @@ public class CatalogoDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jProgressBar1 = new javax.swing.JProgressBar();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableCatalogo = new javax.swing.JTable();
         jLabelTitulo = new javax.swing.JLabel();
@@ -205,6 +206,7 @@ public class CatalogoDialog extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelCategoria;
     private javax.swing.JLabel jLabelId;
     private javax.swing.JLabel jLabelTitulo;
+    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableCatalogo;
     private javax.swing.JTextField jTextFieldAutor;

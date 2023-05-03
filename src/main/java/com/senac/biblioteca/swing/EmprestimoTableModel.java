@@ -4,6 +4,7 @@
  */
 package com.senac.biblioteca.swing;
 
+import com.senac.biblioteca.model.Emprestimo;
 import com.senac.biblioteca.model.Livro;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -12,13 +13,13 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author correa_rafael
  */
-public class LivroTableModel extends AbstractTableModel{
-    private List<Livro> items;
+public class EmprestimoTableModel extends AbstractTableModel{
+    private List<Emprestimo> items;
     private String[] columns = new String[] {
         "Código",
-        "Título",
-        "Autor",
-        "Categoria",
+        "Leitor",
+        "Livro",
+        "Data",
         "Disponível"
     };
     private Class[] types = new Class [] {
@@ -36,7 +37,7 @@ public class LivroTableModel extends AbstractTableModel{
         false
     };
 
-    public LivroTableModel(List<Livro> items) {
+    public EmprestimoTableModel(List<Emprestimo> items) {
         this.items = items;
     }
 
@@ -52,13 +53,13 @@ public class LivroTableModel extends AbstractTableModel{
 
     @Override
      public Object getValueAt(int rowIndex, int columnIndex) {
-        Livro item = items.get(rowIndex);
+        Emprestimo item = items.get(rowIndex);
         switch (columnIndex) {
             case 0: return item.getId();
-            case 1: return item.getTitulo();
-            case 2: return item.getAutor();
-            case 3: return item.getCategoria();
-            case 4: return item.isDisponivel();
+            case 1: return item.getLeitor();
+            case 2: return item.getLivro();
+            case 3: return item.getData();
+            case 4: return item.isDevolvido();
         }
         return null;
     }
@@ -78,13 +79,13 @@ public class LivroTableModel extends AbstractTableModel{
         return canEdit[columnIndex];
     }
     
-    public void add(Livro item) {
+    public void add(Emprestimo item) {
         items.add(item);
         int row = items.indexOf(item);
         fireTableRowsInserted(row, row);
     }
     
-    public void remove(Livro item) {
+    public void remove(Emprestimo item) {
         if (items.contains(item)) {
             int row = items.indexOf(item);
             items.remove(row);

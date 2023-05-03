@@ -14,6 +14,7 @@ public class HomeFrame extends javax.swing.JFrame {
     private final DadosService service = new DadosService();
 
     private CatalogoDialog catalogo;
+    private EmprestimoFrame emprestimos;
 
     /**
      * Creates new form Home
@@ -76,13 +77,15 @@ public class HomeFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonEmprestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEmprestarActionPerformed
-
+        if(this.emprestimos != null) this.emprestimos.setVisible(false);
+        this.emprestimos = new EmprestimoFrame(this,this.service);
+        this.emprestimos.setVisible(true);
     }//GEN-LAST:event_jButtonEmprestarActionPerformed
 
     private void jButtonCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCatalogoActionPerformed
         if(this.catalogo != null) this.catalogo.setVisible(false);
         this.catalogo = new CatalogoDialog(this,this.service);
-        catalogo.setVisible(true);
+        this.catalogo.setVisible(true);
     }//GEN-LAST:event_jButtonCatalogoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
